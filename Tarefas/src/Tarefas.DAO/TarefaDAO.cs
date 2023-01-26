@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using Tarefas.DTO;
+using System.Collections.Generic;
 
 namespace Tarefas.DAO
 {
@@ -48,6 +49,17 @@ namespace Tarefas.DAO
                     (@Titulo, @Descricao, @Concluida);", tarefa
                 );
             }
+        }
+
+        public List<TarefaDTO> Consultar(){
+            using(var con = Connection){
+                con.Open();
+                var result = con.Query<TarefaDTO>(
+                    @"SELECT Id, Titulo, Descricao, Concluido FROM Tarefa"
+                ).ToList();
+                return result;
+            }
+            
         }
         
     }
