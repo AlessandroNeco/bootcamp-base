@@ -88,8 +88,8 @@ namespace Tarefas.DAO
                 con.Open();
                 con.Execute(
                     @"DELETE FROM Tarefa
-                    WHERE Id = @Id", new {id};
-                )
+                    WHERE Id = @Id", new {id}
+                );
             }
         }
     }
