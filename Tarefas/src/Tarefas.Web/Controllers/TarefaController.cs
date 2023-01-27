@@ -56,7 +56,12 @@ namespace Tarefas.Web.Controllers
         [HttpPost]
         public IActionResult Create(TarefaViewModel tarefa)
         {
-            var tarefaDTO = new TarefaDTO 
+
+            if(!ModelState.IsValid){
+                return View();
+            }
+
+            var tarefaDTO = new TarefaDTO                       
             {
                 Titulo = tarefa.Titulo,
                 Descricao = tarefa.Descricao,
@@ -70,7 +75,10 @@ namespace Tarefas.Web.Controllers
         }
         [HttpPost]
         public IActionResult Update(TarefaViewModel tarefa){
-           
+            if(!ModelState.IsValid){
+                return View();
+            }
+
             var tarefaDTO = new TarefaDTO{
                 Id = tarefa.Id,
                 Titulo = tarefa.Titulo,
