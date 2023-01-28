@@ -12,8 +12,11 @@
         <input asp-for="Descricao" class="form-control" disabled>
     </div>
        
-    <input asp-for="Concluida" hidden/>
-    <input asp-for="Id" hidden/>
+   <input asp-for="Id" hidden/>
+    <div>
+        <input asp-for="Concluida" hidden/>
+    </div>
+    
 
     <a asp-controller="Tarefa" asp-action="Index" asp-route-id="@Model.Id">Voltar</a>
         

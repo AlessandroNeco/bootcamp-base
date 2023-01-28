@@ -1,11 +1,15 @@
 @model Tarefas.Web.Models.TarefaViewModel
 
 <form asp-action="Update">
-
+    @section Scripts
+    {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
     <div class="form-group">
 
-        <input asp-for="Id" hidden/>
-        <input asp-for="Concluida" hidden/>
+        
         <label asp-for="Titulo">@Html.DisplayNameFor(model => model.Titulo)</label>
         @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
     </div>
@@ -14,7 +18,12 @@
         <label asp-for="Descricao">@Html.DisplayNameFor(model => model.Descricao)</label>
         @Html.TextAreaFor(model => model.Descricao, new { @class = "form-control" })
     </div>
-        
+    
+    <input asp-for="Id" hidden/>
+    <div>
+        <input asp-for="Concluida" hidden/>
+    </div>
+    
     <input type="submit" class="btn btn-primary" value="Atualizar" />
         
 </form>
